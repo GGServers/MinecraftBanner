@@ -41,8 +41,8 @@ function BannerRender(info, ip, port, status, playerstring, template) {
         context.font = info.font.players_size + " " + info.font.family;
         context.fillText(playerstring, info.players.x, info.players.y);
 
-        //var tmp = canvas.toDataURL("image/png");
-        //document.getElementById("banner").src = tmp;
+        var tmp = canvas.toDataURL("image/png");
+        document.getElementById("banner").src = tmp;
         //win.document.write("<img src='" + canvas.toDataURL() + "'/>");
     }
     imageObj.src = "template/image/" + template + ".png";
