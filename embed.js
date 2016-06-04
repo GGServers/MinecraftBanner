@@ -34,16 +34,15 @@ function BannerRender(info, ip, port, status, playerstring, template) {
     var imageObj = new Image();
     imageObj.onload = function() {
         context.drawImage(imageObj, 0, 0);
-        context.font = info.font.ip_size + " " + info.font.family;
+        context.font = info.ip.size + " " + info.font;
         context.fillText(ip + ":" + port, info.ip.x, info.ip.y);
-        context.font = info.font.status_size + " " + info.font.family;
+        context.font = info.status.size + " " + info.font;
         context.fillText(status + "!", info.status.x, info.status.y);
-        context.font = info.font.players_size + " " + info.font.family;
+        context.font = info.players.size + " " + info.font;
         context.fillText(playerstring, info.players.x, info.players.y);
 
         var tmp = canvas.toDataURL("image/png");
         document.getElementById("banner").src = tmp;
-        //win.document.write("<img src='" + canvas.toDataURL() + "'/>");
     }
     imageObj.src = "template/image/" + template + ".png";
 }
