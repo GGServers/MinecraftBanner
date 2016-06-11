@@ -5,11 +5,11 @@ RUN mkdir -p /usr/src/banner
 WORKDIR /usr/src/banner
 
 # Install app dependencies
-COPY ./Git/package.json /usr/src/banner/
+COPY ./src/package.json /usr/src/banner/
 RUN npm install
 
 # Bundle app source
-COPY ./Git/* /usr/src/banner/
+COPY ./src/* /usr/src/banner/
 
 EXPOSE 8080
 CMD [ "npm", "start" ]
