@@ -1,8 +1,8 @@
-const app = require('express')(),
-      fs = require('fs');
-
+const app  = require('express')(),
+      cors = require('cors');
 const gen = require('./lib/generator.js');
 
+app.use(cors());
 app.listen(8080);
 
 app.get("/img/:id", function(req,res){

@@ -24,6 +24,7 @@
   },
   "homepage": "https://github.com/GGServers/MinecraftBanner#readme",
   "dependencies": {
+    "cors": "^2.7.1",
     "express": "^4.13.4",
     "gamedig": "^0.2.25",
     "glob": "^7.0.3",

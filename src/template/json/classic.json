@@ -2,7 +2,7 @@
     "name": "classic",
     "width": "500",
     "height": "200",
-    "font": "Titillium Web",
+    "font": "Titillium-Web.ttf",
     "ip": {
         "x": 10,
         "y": 40,

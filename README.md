@@ -26,7 +26,7 @@ favorable to display them as rectangles.
 
 #### Example image
 
-![Example](https://raw.githubusercontent.com/GGServers/MinecraftBanner/v1/template/image/classic.png)
+![Example](https://raw.githubusercontent.com/GGServers/MinecraftBanner/v1/src/template/image/classic.png)
 
 ### JSON
 
@@ -37,7 +37,7 @@ The JSON file is where you can specify the location for text to go.
     "name": "classic",
     "width": "500",
     "height": "200",
-    "font": "Titillium Web",
+    "font": "Titillium-Web.ttf",
     "ip": {
         "x": 10,
         "y": 40,
@@ -56,6 +56,6 @@ The JSON file is where you can specify the location for text to go.
 }
 ```
 
-Name is (currently) optional, width and height are to be used. Font tells the JavaScript which font family to use, and should a font which is either loaded via CSS, JavaScript, HTML, or the client has installed.
+Name is (currently) optional, width and height are to be used. Font tells the script which font family to use, the specific .ttf file should be located in the `template/fonts` folder.
 
 Each "section" block tells the script where to render the text and what size (in px). More options (colours etc) may be added later on.
