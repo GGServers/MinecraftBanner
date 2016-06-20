@@ -7,10 +7,12 @@ app.listen(8080);
 
 app.get("/img/:id", function(req,res){
   var id = req.params.id;
-  gen.check(id,function(file){
+  gen.check(id,function(file,err){
+    if(err){res.status(404).send("Not Found"); }else{
     res.sendFile(file,{
       root: __dirname
     });
+  }
   });
 });
 
