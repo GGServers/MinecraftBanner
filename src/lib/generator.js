@@ -57,9 +57,9 @@ module.exports = {
     check: function(id, callback) {
         glob("cache/" + id + "-*.png", function(er, files) {
             if (er || files[0] == undefined) {
-                callback("",true);
+                callback("", true);
             } else {
-              // console.log(files);
+                // console.log(files);
                 var ip = files[0].split("-")[1];
                 var template = files[0].split("-")[2].replace(".png", "");
                 queryServer(ip, function(state) {
@@ -71,7 +71,7 @@ module.exports = {
                         var players = state.players.length.toString() + " / " + state.maxplayers.toString();
                         var status = "Online";
                         image(files[0], template, players, status, ip, function(img) {
-                            callback("cache/" + img,false);
+                            callback("cache/" + img, false);
                         });
                     }
                 });
