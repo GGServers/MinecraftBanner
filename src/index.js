@@ -22,6 +22,7 @@ app.get("/new/:ip/:template", function(req, res) {
     var ip = req.params.ip;
     var template = req.params.template;
     gen.generate(ip, template, function(file) {
+      console.log(file);
         res.sendFile(file, {
             root: __dirname + "/cache"
         });

@@ -1,8 +1,8 @@
 const gd = require('node-gd'),
-    crypto = require('crypto'),
-    glob = require('glob'),
-    dig = require('gamedig'),
-    fs = require('fs');
+      crypto = require('crypto'),
+      glob = require('glob'),
+      dig = require('gamedig'),
+      fs = require('fs');
 
 function queryServer(ip, callback) {
     dig.query({
@@ -15,7 +15,7 @@ function queryServer(ip, callback) {
 }
 
 function image(name, template, players, status, ip, callback) {
-    gd.openFile('template/image/' + template + ".png", function(err, img) {
+    gd.openPng('template/image/' + template + ".png", function(err, img) {
         if (err) {
             throw err;
         }
@@ -32,7 +32,7 @@ function image(name, template, players, status, ip, callback) {
 
         img.savePng("cache/" + name, 1, function(err) {
             if (err) {
-                throw err;
+                console.log(err);
             }
             callback(name);
         });
@@ -44,12 +44,14 @@ module.exports = {
             if (state.error) {
                 var players = "0 / 0";
                 var status = "Offline";
-                image(template, players, status, ip);
+                image(undefined, template, players, status, ip, function(img) {
+                    callback(img);
+                });
             } else {
                 var players = state.players.length.toString() + " / " + state.maxplayers.toString();
                 var status = "Online";
-                image(template, players, status, ip, function(img) {
-                    callback("cache/" + img);
+                image(undefined, template, players, status, ip, function(img) {
+                    callback(img);
                 });
             }
         });

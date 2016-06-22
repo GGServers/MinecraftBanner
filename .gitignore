@@ -1,3 +1,3 @@
-src/cache
-src/node_modules
-.dockerignore
+*/cache
+*/node_modules
+*/npm-debug.log
