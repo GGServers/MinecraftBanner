@@ -15,7 +15,7 @@ function queryServer(ip, callback) {
 }
 
 function image(name, template, players, status, ip, callback) {
-    gd.openPng('template/image/' + template + ".png", function(err, img) {
+    gd.openPng(__dirname + '/../template/image/' + template + ".png", function(err, img) {
         if (err) {
             throw err;
         }
@@ -24,13 +24,13 @@ function image(name, template, players, status, ip, callback) {
             var name = hex + "-" + ip + "-" + template + ".png";
         }
         var txtColor = img.colorAllocate(255, 0, 255);
-        var info = JSON.parse(fs.readFileSync("template/json/" + template + ".json"));
-        var fontPath = "template/fonts/" + info.font;
+        var info = JSON.parse(fs.readFileSync(__dirname + "/../template/json/" + template + ".json"));
+        var fontPath = __dirname + "/../template/fonts/" + info.font;
         img.stringFT(txtColor, fontPath, 24, 0, info.ip.x, info.ip.y, ip);
         img.stringFT(txtColor, fontPath, 24, 0, info.status.x, info.status.y, status);
         img.stringFT(txtColor, fontPath, 24, 0, info.players.x, info.players.y, players);
 
-        img.savePng("cache/" + name, 1, function(err) {
+        img.savePng(__dirname + "/../cache/" + name, 1, function(err) {
             if (err) {
                 console.log(err);
             }
@@ -57,7 +57,7 @@ module.exports = {
         });
     },
     check: function(id, callback) {
-        glob("cache/" + id + "-*.png", function(er, files) {
+        glob(__dirname + "/../cache/" + id + "-*.png", function(er, files) {
             if (er || files[0] == undefined) {
                 callback("", true);
             } else {

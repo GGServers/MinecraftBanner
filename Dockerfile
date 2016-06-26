@@ -1,7 +1,7 @@
 FROM node:latest
 # Create app directory
-RUN apt-get update && apt-get install -y libgd-dev
-RUN mkdir -p /usr/src/banner/{lib,template,cache}
+RUN apt-get update && apt-get install -y libgd2-dev
+RUN mkdir -p /usr/src/banner/cache
 
 WORKDIR /usr/src/banner/
 
