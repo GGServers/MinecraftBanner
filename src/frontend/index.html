@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Minecraft Banner Generator</title>
+    <meta name="description" content="Minecraft Server Banner Generator" />
+    <meta name="author" content="Gabriel Simmer" />
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <!-- Custom CSS based on Skeleton grid -->
+    <link rel="stylesheet" type="text/css" href="css/css.css" />
+</head>
+
+<body>
+    <header>
+        <h1>Minecraft Banner Generator</h1>
+    </header>
+    <main class="container main">
+        <section class="row">
+            <section class="five columns">
+                <!-- User input -->
+                <fieldset>
+                    <label for="ip">IP Address</label>
+                    <input class="u-full-width" type="text" placeholder="127.0.0.1:25565" id="ip">
+                    <label for="exampleRecipientInput">Template</label>
+                    <select class="u-full-width" id="template">
+                      <option value="classic">Classic</option>
+                      <option value="material">Material</option>
+                      <option value="gg">GGServer</option>
+                    </select>
+                    <button class="button-primary" id="btn-gen">Generate</button>
+                </fieldset>
+            </section>
+            <section class="five columns">
+                <!-- User image -->
+                <img src="#" alt="your-banner" style="visibility:hidden;" id="banner">
+                <!-- Replace with placeholder image -->
+                <p id="link" style="visibility:hidden;">Link: <code class="image-link" id="code"></code>
+            </section>
+        </section>
+    </main>
+    <script src="js/js.js"></script>
+</body>
+
+</html>

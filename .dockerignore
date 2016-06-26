@@ -1,0 +1,5 @@
+src/cache
+src/node_modules
+.git
+.gitignore
+src/npm-debug.log

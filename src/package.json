@@ -1,0 +1,34 @@
+{
+  "name": "minecraftbanner",
+  "version": "1.0.0",
+  "description": "Minecraft server banner generator",
+  "main": "index.js",
+  "scripts": {
+    "start":"node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GGServers/MinecraftBanner.git"
+  },
+  "keywords": [
+    "minecraft",
+    "server",
+    "banner",
+    "generator",
+    "png"
+  ],
+  "author": "Gabriel Simmer",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/GGServers/MinecraftBanner/issues"
+  },
+  "homepage": "https://github.com/GGServers/MinecraftBanner#readme",
+  "dependencies": {
+    "cors": "^2.7.1",
+    "express": "^4.13.4",
+    "gamedig": "^0.2.25",
+    "glob": "^7.0.3",
+    "node-gd": "^1.2.1"
+  }
+}
