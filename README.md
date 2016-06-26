@@ -1,9 +1,27 @@
 Minecraft Banner Generator
 ---
 
+[![https://img.shields.io/badge/docker-latest-blue.svg][docker]](https://hub.docker.com/r/gmem/minecraftbanner/)
+
 ## About
 
 Uses Node.js to generate Minecraft server banners.
+
+## Running
+
+There is an official Docker image available here: [gmem/minecraftbanner](https://hub.docker.com/r/gmem/minecraftbanner/).
+
+Or you can do:
+
+```
+git clone git@github.com:GGServers/MinecraftBanner.git
+
+cd MinecraftBanner
+
+npm install
+
+npm start
+```
 
 ## Creating your own banner template
 
@@ -36,21 +54,31 @@ The JSON file is where you can specify the location for text to go.
     "ip": {
         "x": 10,
         "y": 40,
-        "size":"40px"
+        "size":40,
+        "r":255,
+        "g":255,
+        "b":255
     },
     "status": {
         "x": 20,
-        "y": 100,
-        "size":"40px"
+        "y": 110,
+        "size":40,
+        "r":0,
+        "g":0,
+        "b":0
     },
     "players": {
         "x": 20,
         "y": 160,
-        "size":"25px"
+        "size":25,
+        "r":255,
+        "g":255,
+        "b":255
     }
 }
+
 ```
 
 Name is (currently) optional, width and height are to be used. Font tells the script which font family to use, the specific .ttf file should be located in the `template/fonts` folder.
 
-Each "section" block tells the script where to render the text and what size (in px). More options (colours etc) may be added later on.
+Each "section" block tells the script where to render the text, the size (in px), and the color in which to do it (RGB).
