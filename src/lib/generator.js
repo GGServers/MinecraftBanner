@@ -16,11 +16,12 @@ function queryServer(ip, callback) {
 
 function image(name, template, players, status, ip, callback) {
     gd.openPng(__dirname + '/../template/image/' + template + ".png", function(err, img) {
+      var hex;
         if (err) {
             throw err;
         }
         if (!name) {
-            var hex = crypto.randomBytes(16).toString('hex');
+            hex = crypto.randomBytes(16).toString('hex');
             var name = hex + "-" + ip + "-" + template + ".png";
         }
         var txtColor = img.colorAllocate(255, 0, 255);
@@ -34,7 +35,7 @@ function image(name, template, players, status, ip, callback) {
             if (err) {
                 console.log(err);
             }
-            callback(name);
+            callback(hex,name);
         });
     });
 }
@@ -50,8 +51,8 @@ module.exports = {
             } else {
                 var players = state.players.length.toString() + " / " + state.maxplayers.toString();
                 var status = "Online";
-                image(undefined, template, players, status, ip, function(img) {
-                    callback(img);
+                image(undefined, template, players, status, ip, function(hex,img) {
+                    callback(hex,img);
                 });
             }
         });
@@ -61,9 +62,10 @@ module.exports = {
             if (er || files[0] == undefined) {
                 callback("", true);
             } else {
-                // console.log(files);
-                var ip = files[0].split("-")[1];
-                var template = files[0].split("-")[2].replace(".png", "");
+                file = files[0].split("/");
+                console.log(file[file.length-1]);
+                var ip = file[file.length-1].split("-")[1];
+                var template = file[file.length-1].split("-")[2].replace(".png", "");
                 queryServer(ip, function(state) {
                     if (state.error) {
                         var players = "0 / 0";
@@ -72,7 +74,7 @@ module.exports = {
                     } else {
                         var players = state.players.length.toString() + " / " + state.maxplayers.toString();
                         var status = "Online";
-                        image(files[0], template, players, status, ip, function(img) {
+                        image(files[0], template, players, status, ip, function(hex,img) {
                             callback("cache/" + img, false);
                         });
                     }
