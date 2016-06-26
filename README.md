@@ -1,7 +1,7 @@
 Minecraft Banner Generator
 ---
 
-[![https://img.shields.io/badge/docker-latest-blue.svg][docker]](https://hub.docker.com/r/gmem/minecraftbanner/)
+[![docker](https://img.shields.io/badge/docker-latest-blue.svg)](https://hub.docker.com/r/gmem/minecraftbanner/)
 
 ## About
 
