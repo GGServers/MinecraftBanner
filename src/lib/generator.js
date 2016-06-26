@@ -24,12 +24,14 @@ function image(name, template, players, status, ip, callback) {
             hex = crypto.randomBytes(16).toString('hex');
             var name = hex + "-" + ip + "-" + template + ".png";
         }
-        var txtColor = img.colorAllocate(255, 0, 255);
         var info = JSON.parse(fs.readFileSync(__dirname + "/../template/json/" + template + ".json"));
+        var ipColor = img.colorAllocate(info.ip.r,info.ip.g,info.ip.b);
+        var statusColor = img.colorAllocate(info.status.r,info.status.g,info.status.b);
+        var playersColor = img.colorAllocate(info.players.r,info.players.g,info.players.b);
         var fontPath = __dirname + "/../template/fonts/" + info.font;
-        img.stringFT(txtColor, fontPath, 24, 0, info.ip.x, info.ip.y, ip);
-        img.stringFT(txtColor, fontPath, 24, 0, info.status.x, info.status.y, status);
-        img.stringFT(txtColor, fontPath, 24, 0, info.players.x, info.players.y, players);
+        img.stringFT(ipColor, fontPath, info.ip.size, 0, info.ip.x, info.ip.y, ip);
+        img.stringFT(statusColor, fontPath, info.status.size, 0, info.status.x, info.status.y, status);
+        img.stringFT(playersColor, fontPath, info.players.size, 0, info.players.x, info.players.y, players);
 
         img.savePng(__dirname + "/../cache/" + name, 1, function(err) {
             if (err) {
