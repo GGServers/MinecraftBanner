@@ -16,7 +16,7 @@ Or you can do:
 ```
 git clone git@github.com:GGServers/MinecraftBanner.git
 
-cd MinecraftBanner
+cd MinecraftBanner/src/
 
 npm install
 
