@@ -47,8 +47,8 @@ module.exports = {
             if (state.error) {
                 var players = "0 / 0";
                 var status = "Offline";
-                image(undefined, template, players, status, ip, function(img) {
-                    callback(img);
+                image(undefined, template, players, status, ip, function(hex,img) {
+                    callback(hex,img);
                 });
             } else {
                 var players = state.players.length.toString() + " / " + state.maxplayers.toString();
@@ -72,7 +72,9 @@ module.exports = {
                     if (state.error) {
                         var players = "0 / 0";
                         var status = "Offline";
-                        image(template, players, status, ip);
+                        image(files[0], template, players, status, ip, function(hex,img) {
+                            callback("cache/" + img, false);
+                        });
                     } else {
                         var players = state.players.length.toString() + " / " + state.maxplayers.toString();
                         var status = "Online";
